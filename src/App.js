@@ -1,15 +1,20 @@
 import React from 'react';
 import Header from './Components/Header';
 import './App.css';
-import Main from './Components/Main';
+import Home from './Components/Home';
 import { Router } from '@reach/router';
+import SingleArticle from './Components/SingleArticle';
+import ArticleList from './Components/ArticleList';
+// import ArticleList from './Components/ArticleList';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Router>
-        <Main path="/" />
+        <Home path="/" />
+        <ArticleList path="/" />
+        <SingleArticle path="/articles/:article_id" />
       </Router>
     </div>
   );

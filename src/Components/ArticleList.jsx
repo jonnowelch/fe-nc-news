@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 export default function ArticleList({ articles }) {
   return (
@@ -14,7 +15,11 @@ export default function ArticleList({ articles }) {
         {articles.map(articleItem => {
           return (
             <tr key={articleItem.article_id}>
-              <td>{articleItem.title}</td>
+              <td>
+                <Link to={`/articles/${articleItem.article_id}`}>
+                  {articleItem.title}
+                </Link>
+              </td>
               <td>{articleItem.topic}</td>
               <td>{articleItem.votes}</td>
             </tr>
