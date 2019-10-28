@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-export const axiosGetArticles = articleID => {
-  return axios.get(
-    `https://nc-news-jonno.herokuapp.com/api/articles/${articleID}`
-  );
+const request = axios.create({
+  baseURL: 'https://nc-news-jonno.herokuapp.com/api'
+});
+
+export const axiosGetArticles = () => {
+  return request.get('/articles').then(({ data }) => {
+    return data;
+  });
 };
