@@ -2,12 +2,15 @@ import React from 'react';
 import Header from './Components/Header';
 import './App.css';
 import Main from './Components/Main';
+import { Router } from '@reach/router';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Main />
+      <Router>
+        <Main path="/" />
+      </Router>
     </div>
   );
 }
