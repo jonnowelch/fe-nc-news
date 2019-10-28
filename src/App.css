@@ -43,3 +43,59 @@ td {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 15pt;
 }
+
+#singleArticle {
+  color: rgb(16, 46, 7);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#topicDropdown {
+  color: rgb(16, 46, 7);
+  background: white;
+  border-radius: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#topicFilterButton {
+  color: rgb(16, 46, 7);
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 12px;
+}
+
+#articleVoter {
+  font-size: 20px;
+  color: rgb(190, 123, 207);
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 10px;
+  background-color: #020c14;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(177, 221, 215, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.item2 {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.item5 {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+}

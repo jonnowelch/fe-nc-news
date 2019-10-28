@@ -21,3 +21,16 @@ export const getIndividualArticle = articleid => {
     return data;
   });
 };
+
+export const getCommentsByArticleID = articleid => {
+  return request.get(`/articles/${articleid}/comments`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getArticlesVotes = articleid => {
+  return request.get(`/articles/${articleid}/comments`).then(({ data }) => {
+    console.log(data);
+    return data;
+  });
+};
