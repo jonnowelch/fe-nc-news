@@ -38,3 +38,7 @@ export const getArticlesVotes = articleid => {
 export const postCommentToArticle = (username, body, articleid) => {
   return request.post(`/articles/${articleid}/comments`, { body, username });
 };
+
+export const getComments = articleid => {
+  return request.get(`/articles/${articleid}/comments`);
+};
