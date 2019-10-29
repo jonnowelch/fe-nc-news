@@ -35,12 +35,23 @@ export default class CommentViewer extends Component {
       })
       .catch(console.dir);
   };
+
+  deleteComment = comment_id => {
+    API.deleteCommentByCommentId(comment_id).then(response => {
+      this.setState(currentState => {
+        return { comments: currentState.comments };
+      });
+    });
+  };
+
+  handleSubmitDelete = event => {};
+
   render() {
     const { comments } = this.state.comments;
     return (
       <div>
         <CommentAdder addComment={this.addComment} />
-        {/* <CommentDeleter /> */}
+        <CommentDeleter deleteComment={this.deleteComment} />
         <br></br>
         Comments:
         {comments &&
@@ -50,6 +61,13 @@ export default class CommentViewer extends Component {
                 {comment.body}
                 {comment.author}
                 {comment.votes}
+                <button
+                  type="submit"
+                  id="deleteButton"
+                  onSubmit={this.handleSubmitDelete}
+                >
+                  Delete Comment
+                </button>
               </p>
             );
           })}

@@ -42,3 +42,7 @@ export const postCommentToArticle = (username, body, articleid) => {
 export const getComments = articleid => {
   return request.get(`/articles/${articleid}/comments`);
 };
+
+export const deleteCommentByCommentId = comment_id => {
+  return request.delete(`/comments/${comment_id}`);
+};
