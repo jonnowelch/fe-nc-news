@@ -22,9 +22,7 @@ export default class SingleArticle extends Component {
     });
   }
 
-  // where does this.props come from here?
   render() {
-    console.log(this.state);
     return (
       <div className="grid-container" id="singleArticle">
         <div className="grid-item item1"> {this.state.indivArticle.body}</div>
