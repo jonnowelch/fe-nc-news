@@ -13,7 +13,6 @@ export const axiosGetArticles = (topic, sortBy) => {
       }
     })
     .then(({ data }) => {
-      console.log(data);
       return data;
     });
 };
@@ -32,7 +31,10 @@ export const getCommentsByArticleID = articleid => {
 
 export const getArticlesVotes = articleid => {
   return request.get(`/articles/${articleid}/comments`).then(({ data }) => {
-    console.log(data);
     return data;
   });
+};
+
+export const postCommentToArticle = (username, body, articleid) => {
+  return request.post(`/articles/${articleid}/comments`, { body, username });
 };

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as API from '../API';
 import CommentViewer from './CommentViewer';
 import ArticleVote from './ArticleVote';
+import CommentAdder from './CommentAdder';
 
 export default class SingleArticle extends Component {
   state = {
@@ -41,6 +42,7 @@ export default class SingleArticle extends Component {
         <div className="grid-item item6">
           Comment Count: {this.state.comment_count}
         </div>
+        <CommentAdder />
       </div>
     );
   }
