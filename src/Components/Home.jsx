@@ -12,7 +12,7 @@ export default class Home extends Component {
     articles: [],
     selectedTopic: '',
     selectedSortBy: 'created_at',
-    user: 'Jonno'
+    user: 'weegembump'
   };
 
   componentDidMount() {
@@ -52,9 +52,17 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <TopicsDropdown filterByTopic={this.filterByTopic} />
-        <ArticleFilter sortByOption={this.sortByOption} />
-        <ArticleList articles={this.state.articles} />
+        <div className="dropdown-container">
+          <div className="dropdown-item firstDropdown">
+            <TopicsDropdown filterByTopic={this.filterByTopic} />
+          </div>
+          <div className="dropdown-item secondDropdown">
+            <ArticleFilter sortByOption={this.sortByOption} />
+          </div>
+        </div>
+        <div>
+          <ArticleList articles={this.state.articles} />
+        </div>
       </div>
     );
   }

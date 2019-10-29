@@ -3,14 +3,16 @@ import { Link } from '@reach/router';
 
 export default function ArticleCard({ article }) {
   return (
-    <li key="articleCards">
-      <div>
+    <li key="articleCards" className="article-container">
+      <div className="article-item fifthItem">
         <Link to={`articles/${article.article_id}`}>{article.title}</Link>
       </div>
-      <div>Author: {article.author}</div>
-      <div>Comments:{article.comment_count}</div>
-      <div>Topic: {article.topic}</div>
-      <div>Votes: {article.votes}</div>
+      <div className="article-item firstItem">Author: {article.author}</div>
+      <div className="article-item secondItem">
+        Comments:{article.comment_count}
+      </div>
+      <div className="article-item thirdItem">Topic: {article.topic}</div>
+      <div className="article-item fourthItem">Votes: {article.votes}</div>
     </li>
   );
 }
