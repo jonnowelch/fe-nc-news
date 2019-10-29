@@ -26,3 +26,16 @@ export default function ArticleList({ articles }) {
     </table>
   );
 }
+
+   const { topicName } = this.props;
+    console.log(topicName);
+
+    const topicNameChange = prevProps.topicName !== topicName;
+    const queryChange = prevState.sortBy !== this.state.sortBy;
+
+    if (topicNameChange || queryChange) {
+      api.getArticles(this.state.sortBy, topicName).then(topicArticles => {
+        this.setState({ articles: topicArticles });
+      });
+    }
+  }

@@ -4,14 +4,16 @@ const request = axios.create({
   baseURL: 'https://nc-news-jonno.herokuapp.com/api'
 });
 
-export const axiosGetArticles = topic => {
+export const axiosGetArticles = (topic, sortBy) => {
   return request
     .get('/articles', {
       params: {
-        topic
+        topic,
+        sort_by: sortBy
       }
     })
     .then(({ data }) => {
+      console.log(data);
       return data;
     });
 };

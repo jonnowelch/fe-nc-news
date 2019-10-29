@@ -1,19 +1,31 @@
 import React, { Component } from 'react';
-import * as API from '../API';
 
 export default class ArticleFilter extends Component {
   state = {
-    articles: [],
-    date_created: '',
-    comment_count: 0,
-    votes: 0
+    sortBy: ''
   };
 
-  //   componentDidMount() {
+  // handleSelectSortBy = event => {
+  //   console.log(event.target.value);
+  //   this.setState({ sortBy: event.target.value });
+  // };
 
-  //   }
+  handleSubmit = event => {
+    // console.dir(event.target.value);
+    event.preventDefault();
+    this.props.sortByOption(event.target.value);
+  };
 
   render() {
-    return <div></div>;
+    return (
+      <label>
+        Order to be sorted by:
+        <select onChange={this.handleSubmit} id="sortBySelector">
+          <option value="created_at"> Date Created</option>
+          <option value="comment_count"> Comment Count</option>
+          <option value="votes"> votes</option>
+        </select>
+      </label>
+    );
   }
 }
