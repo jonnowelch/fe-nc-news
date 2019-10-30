@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import UsersList from './UsersList';
 
-export default class Header extends Component {
-  render() {
-    return <h1> Welcome to NC News </h1>;
-  }
+export default function Header() {
+  return (
+    <div>
+      <h1> Welcome to NC News </h1>
+      <UsersList />
+    </div>
+  );
 }

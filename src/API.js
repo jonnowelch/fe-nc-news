@@ -46,3 +46,9 @@ export const getComments = articleid => {
 export const deleteCommentByCommentId = comment_id => {
   return request.delete(`/comments/${comment_id}`);
 };
+
+export const getAllUsers = () => {
+  return request.get('/users').then(({ data }) => {
+    return data;
+  });
+};
