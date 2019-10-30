@@ -52,3 +52,11 @@ export const getAllUsers = () => {
     return data;
   });
 };
+
+export const updateArticleVote = articleID => {
+  return request
+    .patch(`articles/${articleID}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data;
+    });
+};

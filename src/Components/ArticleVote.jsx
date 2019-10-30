@@ -3,18 +3,26 @@ import * as API from '../API';
 
 export default class ArticleVote extends Component {
   state = {
-    votes: 0
+    voteChange: 0
   };
 
-  componentDidMount() {
-    API.getIndividualArticle(this.props.article_id).then(response => {
-      this.setState({
-        votes: response.article.votes
-      });
+  voteOnArticle = () => {
+    const { article_id } = this.props;
+    API.updateArticleVote(article_id).then(() => {
+      this.setState({ voteChange: 1 });
     });
-  }
+  };
 
   render() {
-    return <div id="articleVoter">Votes : {this.state.votes}</div>;
+    return (
+      <form>
+        Votes : {this.props.votes} <br></br>
+        <button onClick={this.voteOnArticle} id="articleVoter">
+          Upvote
+        </button>
+      </form>
+    );
   }
 }
+
+// disabled={voteChange === 0 > false : true}

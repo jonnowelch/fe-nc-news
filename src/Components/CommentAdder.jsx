@@ -3,22 +3,22 @@ import React, { Component } from 'react';
 export default class CommentAdder extends Component {
   state = {
     body: '',
-    user: 'weegembump',
-    articleID: 33
+    user: 'weegembump'
   };
 
   handleSubmit = event => {
+    console.log(this.props, 'comment adder props');
+    console.log(this.state, 'state in comment adder');
     event.preventDefault();
     if (this.state.body && this.state.user !== '') {
       this.props.addComment(
         this.state.user,
         this.state.body,
-        this.state.articleID
+        this.props.article_id
       );
       this.setState({
         body: '',
-        user: 'weegembump',
-        articleID: 33
+        user: 'weegembump'
       });
     }
   };

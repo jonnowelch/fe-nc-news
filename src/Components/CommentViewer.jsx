@@ -9,6 +9,7 @@ export default class CommentViewer extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.article_id, 'this works CDM cviewer');
     API.getCommentsByArticleID(this.props.article_id).then(comments => {
       this.setState({
         comments
@@ -25,6 +26,7 @@ export default class CommentViewer extends Component {
   }
 
   addComment = (user, comment, articleID) => {
+    console.log(articleID);
     API.postCommentToArticle(user, comment, articleID)
       .then(response => {
         this.setState(currentState => {
@@ -50,17 +52,26 @@ export default class CommentViewer extends Component {
     const { comments } = this.state.comments;
     return (
       <div>
-        <CommentAdder addComment={this.addComment} />
-        <CommentDeleter deleteComment={this.deleteComment} />
+        <CommentAdder
+          addComment={this.addComment}
+          article_id={this.props.article_id}
+        />
+        <CommentDeleter
+          deleteComment={this.deleteComment}
+          article_id={this.props.articleID}
+        />
         <br></br>
         Comments:
         {comments &&
           comments.map(comment => {
             return (
               <p key={comment.comment_id}>
-                {comment.body}
-                {comment.author}
+                {' '}
+                <br></br>
+                {comment.body} <br></br>
+                {comment.author} <br></br>
                 {comment.votes}
+                <br></br>
                 <button
                   type="submit"
                   id="deleteButton"
