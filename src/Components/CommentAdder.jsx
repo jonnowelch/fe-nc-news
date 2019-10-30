@@ -7,8 +7,6 @@ export default class CommentAdder extends Component {
   };
 
   handleSubmit = event => {
-    console.log(this.props, 'comment adder props');
-    console.log(this.state, 'state in comment adder');
     event.preventDefault();
     if (this.state.body && this.state.user !== '') {
       this.props.addComment(

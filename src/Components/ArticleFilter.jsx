@@ -5,13 +5,7 @@ export default class ArticleFilter extends Component {
     sortBy: ''
   };
 
-  // handleSelectSortBy = event => {
-  //   console.log(event.target.value);
-  //   this.setState({ sortBy: event.target.value });
-  // };
-
   handleSubmit = event => {
-    // console.dir(event.target.value);
     event.preventDefault();
     this.props.sortByOption(event.target.value);
   };

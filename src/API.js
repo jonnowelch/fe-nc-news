@@ -54,9 +54,11 @@ export const getAllUsers = () => {
 };
 
 export const updateArticleVote = articleID => {
+  console.log(articleID);
   return request
-    .patch(`articles/${articleID}`, { inc_votes: 1 })
+    .patch(`/articles/${articleID}`, { inc_vote: 1 })
     .then(({ data }) => {
+      console.log(data);
       return data;
     });
 };

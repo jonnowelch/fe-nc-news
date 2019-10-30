@@ -9,7 +9,7 @@ export default class SingleArticle extends Component {
     comment_count: 0,
     author: '',
     created_at: '',
-    votes: 0
+    votes: 1
   };
 
   componentDidMount() {
@@ -19,10 +19,20 @@ export default class SingleArticle extends Component {
         comment_count: response.article.comment_count,
         author: response.article.author,
         created_at: response.article.created_at,
-        votes: response.votes
+        votes: response.article.votes
       });
     });
   }
+
+  changeArticleVotes = event => {
+    console.log('hello');
+    event.preventDefault();
+    const { article_id } = this.props;
+    API.updateArticleVote(article_id).then(response => {
+      console.log(response.article.votes, '888');
+      this.setState({ votes: response.article.votes });
+    });
+  };
 
   render() {
     return (
@@ -30,6 +40,7 @@ export default class SingleArticle extends Component {
         <div className="grid-item item1"> {this.state.indivArticle.body}</div>
         <div className="grid-item item2">
           <ArticleVote
+            changeArticleVotes={this.changeArticleVotes}
             article_id={this.props.article_id}
             votes={this.state.votes}
           />
