@@ -60,3 +60,11 @@ export const updateArticleVote = articleID => {
       return data;
     });
 };
+
+export const updateCommentVote = commentID => {
+  return request
+    .patch(`/comments/${commentID}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data;
+    });
+};

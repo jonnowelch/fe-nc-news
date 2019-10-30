@@ -9,7 +9,7 @@ export default class SingleArticle extends Component {
     comment_count: 0,
     author: '',
     created_at: '',
-    votes: 1
+    votes: 0
   };
 
   componentDidMount() {

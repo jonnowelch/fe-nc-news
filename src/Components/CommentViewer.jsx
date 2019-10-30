@@ -42,6 +42,11 @@ export default class CommentViewer extends Component {
     });
   };
 
+  changeCommentVotes = event => {
+    event.preventDefault();
+    console.log(this.props);
+  };
+
   render() {
     const { comments } = this.state;
     return (
@@ -54,6 +59,7 @@ export default class CommentViewer extends Component {
           {comments.map(comment => {
             return (
               <CommentCard
+                changeCommentVotes={this.changeCommentVotes}
                 handleDeleteComment={this.handleDeleteComment}
                 comment={comment}
                 key={comment.comment_id}
