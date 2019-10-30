@@ -1,6 +1,7 @@
-import React from 'react';
-// import * as API from '../API';
+import React, { Component } from 'react';
 
-export default function CommentDeleter() {
-  return <div></div>;
+export default class CommentDeleter extends Component {
+  render() {
+    return <div></div>;
+  }
 }

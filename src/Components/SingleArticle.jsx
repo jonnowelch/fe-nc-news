@@ -25,11 +25,9 @@ export default class SingleArticle extends Component {
   }
 
   changeArticleVotes = event => {
-    console.log('hello');
     event.preventDefault();
     const { article_id } = this.props;
     API.updateArticleVote(article_id).then(response => {
-      console.log(response.article.votes, '888');
       this.setState({ votes: response.article.votes });
     });
   };
