@@ -42,10 +42,10 @@ export default class CommentViewer extends Component {
     });
   };
 
-  changeCommentVotes = event => {
-    event.preventDefault();
-    console.log(this.props);
-  };
+  // changeCommentVotes = event => {
+  //   event.preventDefault();
+  //   console.log(this.props);
+  // };
 
   render() {
     const { comments } = this.state;

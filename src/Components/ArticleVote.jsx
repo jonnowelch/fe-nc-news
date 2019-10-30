@@ -16,10 +16,11 @@ export default class ArticleVote extends Component {
   render() {
     return (
       <form onSubmit={this.props.changeArticleVotes}>
-        Votes : {this.props.votes} <br></br>
-        <button onClick={this.changeArticleVotes} id="articleVoter">
-          Upvote
+        Votes : {this.props.votes}
+        <button onClick={this.changeArticleVotes} id="articleUpvoter">
+          Upvote ⏫
         </button>
+        <button id="articleDownvoter">Downvote ⏬ </button>
       </form>
     );
   }

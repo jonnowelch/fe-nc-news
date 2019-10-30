@@ -29,16 +29,17 @@ export default class CommentAdder extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
+        <label id="enterCommentText">
           Enter Comment:
           <input
+            id="enter-comment"
             type="text"
             required
             onChange={this.handleCommentInput}
             value={this.state.body}
           />
         </label>
-        <button type="submit" value="Submit Comment">
+        <button type="submit" value="Submit Comment" id="addCommentButton">
           Submit Comment
         </button>
       </form>

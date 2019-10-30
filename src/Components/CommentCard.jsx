@@ -9,9 +9,7 @@ export default function CommentCard({
 }) {
   return (
     <li key="commentCards" className="comment-container">
-      <div className="comment-item firstCommentItem">
-        Comment : {comment.body}
-      </div>
+      <div className="comment-item firstCommentItem">{comment.body}</div>
       <div className="comment-item secondCommentItem">
         Posted by : {comment.author}
       </div>
@@ -19,7 +17,7 @@ export default function CommentCard({
         Posted at : {comment.created_at}
       </div>
       <div className="comment-item fourthCommentItem">
-        Votes : {comment.votes}{' '}
+        Votes : {comment.votes}
         <CommentVote
           changeCommentVotes={changeCommentVotes}
           comment_id={comment.comment_id}

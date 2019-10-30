@@ -8,11 +8,12 @@ export default class CommentVote extends Component {
     return (
       <form onSubmit={this.props.changeCommentVotes}>
         <button
-          onClick={this.props.changeCommentVotes(this.comment_id)}
-          id="commentVoter"
+          // onClick={this.props.changeCommentVotes(this.comment_id)}
+          id="upvoteCommentButton"
         >
-          Upvote
+          Upvote ⏫
         </button>
+        <button id="downvoteCommentButton">Downvote ⏬ </button>
       </form>
     );
   }

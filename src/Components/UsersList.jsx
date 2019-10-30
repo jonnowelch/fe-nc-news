@@ -17,7 +17,6 @@ export default class UsersList extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Select User
           <select onChange={this.handleSelectUser} id="userDropdown">
             <option key="select user"> Select User</option>
             {this.state.users.map(user => {
