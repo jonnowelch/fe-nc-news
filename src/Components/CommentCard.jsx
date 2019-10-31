@@ -1,12 +1,8 @@
 import React from 'react';
-import CommentVote from './CommentVote';
-// import CommentDeleter from './CommentDeleter';
+import Voter from './Voter';
+// import CommentVote from './CommentVote';
 
-export default function CommentCard({
-  comment,
-  handleDeleteComment,
-  changeCommentVotes
-}) {
+export default function CommentCard({ comment, handleDeleteComment }) {
   return (
     <li key="commentCards" className="comment-container">
       <div className="comment-item firstCommentItem">{comment.body}</div>
@@ -17,10 +13,10 @@ export default function CommentCard({
         Posted at : {comment.created_at}
       </div>
       <div className="comment-item fourthCommentItem">
-        Votes : {comment.votes}
-        <CommentVote
-          changeCommentVotes={changeCommentVotes}
-          comment_id={comment.comment_id}
+        <Voter
+          id={comment.comment_id}
+          votes={comment.votes}
+          beingUpdated="comment"
         />
       </div>
       <button
@@ -33,3 +29,5 @@ export default function CommentCard({
     </li>
   );
 }
+
+//Warning: This synthetic event is reused for performance reasons. If you're seeing this, you're accessing the property `target` on a released/nullified synthetic event. This is set to null. If you must keep the original synthetic event around, use event.persist(). See https://fb.me/react-event-pooling for more information.

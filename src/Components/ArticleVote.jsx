@@ -15,15 +15,31 @@ export default class ArticleVote extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.changeArticleVotes}>
-        Votes : {this.props.votes}
-        <button onClick={this.changeArticleVotes} id="articleUpvoter">
-          Upvote ⏫
-        </button>
-        <button id="articleDownvoter">Downvote ⏬ </button>
-      </form>
+      <div>
+        <form onSubmit={this.props.upVoteArticle}>
+          Votes : {this.props.votes}
+          <button onClick={this.upVoteArticle} id="articleUpvoter">
+            Upvote
+            <span role="img" aria-label="up-arrow">
+              ⏫
+            </span>
+          </button>
+        </form>
+        <form onSubmit={this.props.downVoteArticle}>
+          <button onClick={this.downVoteArticle} id="articleDownvoter">
+            Downvote
+            <span role="img" aria-label="down-arrow">
+              ⏬
+            </span>
+          </button>
+        </form>
+      </div>
     );
   }
 }
 
 // disabled={voteChange === 0 > false : true}
+
+{
+  /* <span role="img" aria-label="sheep">🐑</span> */
+}

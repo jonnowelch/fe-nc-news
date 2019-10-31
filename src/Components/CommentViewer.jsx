@@ -42,10 +42,13 @@ export default class CommentViewer extends Component {
     });
   };
 
-  // changeCommentVotes = event => {
-  //   event.preventDefault();
-  //   console.log(this.props);
-  // };
+  upVoteComment = event => {
+    event.preventDefault();
+    const { article_id } = this.props;
+    API.upVoteComment(article_id).then(response => {
+      this.setState({ votes: response.article.votes });
+    });
+  };
 
   render() {
     const { comments } = this.state;

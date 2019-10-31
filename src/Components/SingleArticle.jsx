@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as API from '../API';
 import CommentViewer from './CommentViewer';
-import ArticleVote from './ArticleVote';
+// import ArticleVote from './ArticleVote';
+import Voter from './Voter';
 
 export default class SingleArticle extends Component {
   state = {
@@ -24,10 +25,18 @@ export default class SingleArticle extends Component {
     });
   }
 
-  changeArticleVotes = event => {
+  upVoteArticle = event => {
     event.preventDefault();
     const { article_id } = this.props;
-    API.updateArticleVote(article_id).then(response => {
+    API.upVoteArticle(article_id).then(response => {
+      this.setState({ votes: response.article.votes });
+    });
+  };
+
+  downVoteArticle = event => {
+    event.preventDefault();
+    const { article_id } = this.props;
+    API.downVoteArticle(article_id).then(response => {
       this.setState({ votes: response.article.votes });
     });
   };
@@ -37,11 +46,11 @@ export default class SingleArticle extends Component {
       <div className="grid-container" id="singleArticle">
         <div className="grid-item item1"> {this.state.indivArticle.body}</div>
         <div className="grid-item item2">
-          <ArticleVote
-            changeArticleVotes={this.changeArticleVotes}
-            article_id={this.props.article_id}
+          <Voter
+            id={this.props.article_id}
             votes={this.state.votes}
-          />
+            beingUpdated="article"
+          ></Voter>
         </div>
         <div className="grid-item item3">
           Author: {this.state.indivArticle.author}
