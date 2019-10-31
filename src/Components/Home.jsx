@@ -3,9 +3,6 @@ import * as API from '../API';
 import ArticleList from './ArticleList';
 import TopicsDropdown from './TopicsDropdown';
 import ArticleFilter from './ArticleFilter';
-// import SingleArticle from './SingleArticle';
-// import ArticleList from './ArticleList';L
-// import { Router } from '@reach/router';
 
 export default class Home extends Component {
   state = {

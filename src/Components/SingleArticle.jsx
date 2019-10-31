@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import * as API from '../API';
 import CommentViewer from './CommentViewer';
-// import ArticleVote from './ArticleVote';
 import Voter from './Voter';
+import ErrorHandler from './ErrorHandler';
 
 export default class SingleArticle extends Component {
   state = {
@@ -10,36 +10,28 @@ export default class SingleArticle extends Component {
     comment_count: 0,
     author: '',
     created_at: '',
-    votes: 0
+    votes: 0,
+    err: {
+      errStatus: null,
+      errMessage: ''
+    }
   };
 
   componentDidMount() {
-    API.getIndividualArticle(this.props.article_id).then(response => {
-      this.setState({
-        indivArticle: response.article,
-        comment_count: response.article.comment_count,
-        author: response.article.author,
-        created_at: response.article.created_at,
-        votes: response.article.votes
+    API.getIndividualArticle(this.props.article_id)
+      .then(response => {
+        this.setState({
+          indivArticle: response.article,
+          comment_count: response.article.comment_count,
+          author: response.article.author,
+          created_at: response.article.created_at,
+          votes: response.article.votes
+        });
+      })
+      .catch(() => {
+        console.log('hello');
       });
-    });
   }
-
-  upVoteArticle = event => {
-    event.preventDefault();
-    const { article_id } = this.props;
-    API.upVoteArticle(article_id).then(response => {
-      this.setState({ votes: response.article.votes });
-    });
-  };
-
-  downVoteArticle = event => {
-    event.preventDefault();
-    const { article_id } = this.props;
-    API.downVoteArticle(article_id).then(response => {
-      this.setState({ votes: response.article.votes });
-    });
-  };
 
   render() {
     return (
@@ -59,11 +51,15 @@ export default class SingleArticle extends Component {
           Created At: {this.state.indivArticle.created_at}
         </div>
         <div className="grid-item item5">
-          <CommentViewer article_id={this.props.article_id} />
+          <CommentViewer
+            loggedInUser={this.props.loggedInUser}
+            article_id={this.props.article_id}
+          />
         </div>
         <div className="grid-item item6">
           Comment Count: {this.state.comment_count}
         </div>
+        <ErrorHandler />
       </div>
     );
   }

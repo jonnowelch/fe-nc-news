@@ -53,38 +53,6 @@ export const getAllUsers = () => {
   });
 };
 
-export const upVoteArticle = articleID => {
-  return request
-    .patch(`/articles/${articleID}`, { inc_vote: 1 })
-    .then(({ data }) => {
-      return data;
-    });
-};
-
-export const downVoteArticle = articleID => {
-  return request
-    .patch(`/articles/${articleID}`, { inc_vote: -1 })
-    .then(({ data }) => {
-      return data;
-    });
-};
-
-export const upVoteComment = commentID => {
-  return request
-    .patch(`/comments/${commentID}`, { inc_votes: 1 })
-    .then(({ data }) => {
-      return data;
-    });
-};
-
-export const downVoteComment = commentID => {
-  return request
-    .patch(`/comments/${commentID}`, { inc_votes: -1 })
-    .then(({ data }) => {
-      return data;
-    });
-};
-
 export const changeArticleVotes = (articleid, inc_vote) => {
   return request
     .patch(`/articles/${articleid}`, { inc_vote })
@@ -94,8 +62,6 @@ export const changeArticleVotes = (articleid, inc_vote) => {
 };
 
 export const changeCommentVotes = (comment_id, inc_votes) => {
-  // console.log(comment_id, 'id here');
-  // console.log(inc_votes, 'votes here');
   return request
     .patch(`/comments/${comment_id}`, { inc_votes })
     .then(({ data }) => {

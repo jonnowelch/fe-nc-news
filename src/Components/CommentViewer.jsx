@@ -42,19 +42,12 @@ export default class CommentViewer extends Component {
     });
   };
 
-  upVoteComment = event => {
-    event.preventDefault();
-    const { article_id } = this.props;
-    API.upVoteComment(article_id).then(response => {
-      this.setState({ votes: response.article.votes });
-    });
-  };
-
   render() {
     const { comments } = this.state;
     return (
       <div>
         <CommentAdder
+          loggedInUser={this.props.loggedInUser}
           addComment={this.addComment}
           article_id={this.props.article_id}
         />
@@ -62,6 +55,7 @@ export default class CommentViewer extends Component {
           {comments.map(comment => {
             return (
               <CommentCard
+                loggedInUser={this.props.loggedInUser}
                 changeCommentVotes={this.changeCommentVotes}
                 handleDeleteComment={this.handleDeleteComment}
                 comment={comment}

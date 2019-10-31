@@ -52,3 +52,5 @@ export default class Voter extends Component {
     );
   }
 }
+
+// disabled={voteChange === 0 > false : true}
