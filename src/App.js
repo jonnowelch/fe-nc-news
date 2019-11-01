@@ -6,6 +6,7 @@ import { Router } from '@reach/router';
 import SingleArticle from './Components/SingleArticle';
 import ErrorPage from './Components/ErrorPage';
 import TopicsPage from './Components/TopicsPage';
+import UserPage from './Components/UserPage';
 
 export default class App extends Component {
   state = {
@@ -23,6 +24,7 @@ export default class App extends Component {
             loggedInUser={this.state.loggedInUser}
           />
           <TopicsPage path="/topics" />
+          <UserPage path="/users/:username" />
           <ErrorPage default />
         </Router>
       </div>

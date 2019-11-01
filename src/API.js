@@ -4,12 +4,13 @@ const request = axios.create({
   baseURL: 'https://nc-news-jonno.herokuapp.com/api'
 });
 
-export const axiosGetArticles = (topic, sortBy) => {
+export const axiosGetArticles = (topic, sortBy, author) => {
   return request
     .get('/articles', {
       params: {
         topic,
-        sort_by: sortBy
+        sort_by: sortBy,
+        author
       }
     })
     .then(({ data }) => {
@@ -49,6 +50,12 @@ export const deleteCommentByCommentId = comment_id => {
 
 export const getAllUsers = () => {
   return request.get('/users').then(({ data }) => {
+    return data;
+  });
+};
+
+export const getUserByUserID = username => {
+  return request.get(`/users/${username}`).then(({ data }) => {
     return data;
   });
 };
