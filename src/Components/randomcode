@@ -1,30 +1,115 @@
-        <CommentAdder
-          addComment={this.addComment}
-          article_id={this.props.article_id}
-        />
-        <CommentDeleter
-          deleteComment={this.deleteComment}
-          article_id={this.props.articleID}
-        />
-        <br></br>
-        Comments:
-        {comments.length &&
-          comments.map(comment => {
-            return (
-              <p key={comment.comment_id}>
-                {' '}
-                <br></br>
-                {comment.body} <br></br>
-                {comment.author} <br></br>
-                {comment.votes}
-                <br></br>
-                <button
-                  type="submit"
-                  id="deleteButton"
-                  onSubmit={this.handleSubmitDelete}
-                >
-                  Delete Comment
-                </button>
-              </p>
-            );
-          })}
+import React, { Component } from 'react';
+import * as API from '../API';
+
+export default class Voter extends Component {
+  state = {
+    voteChange: 0
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.props.beingUpdated === 'article') {
+      API.changeArticleVotes(this.props.id, this.state.voteChange);
+    } else {
+      API.changeCommentVotes(this.props.id, this.state.voteChange);
+    }
+  };
+
+  handleClick = vote => {
+    this.setState(prevState => {
+      return { voteChange: prevState.voteChange + vote };
+    });
+  };
+
+  render() {
+    const { votes } = this.props;
+    return (
+      <form onSubmit={this.handleSubmit}>
+        Votes : {votes + this.state.voteChange}
+        <button
+          disabled={this.state.voteChange === 0 ? false : true}
+          onClick={() => {
+            this.handleClick(1);
+          }}
+          id="articleUpvoter"
+        >
+          Upvote
+          <span role="img" aria-label="up-arrow">
+            ⏫
+          </span>
+        </button>
+        <button
+          disabled={this.state.voteChange === 0 ? false : true}
+          onClick={() => {
+            this.handleClick(-1);
+          }}
+          id="articleDownvoter"
+        >
+          Downvote
+          <span role="img" aria-label="down-arrow">
+            ⏬
+          </span>
+        </button>
+      </form>
+    );
+  }
+}
+
+// disabled={voteChange === 0 > false : true}
+
+import React, { Component } from 'react';
+import * as API from '../API';
+
+export default class Voter extends Component {
+  state = {
+    voteChange: 0
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.props.beingUpdated === 'article') {
+      API.changeArticleVotes(this.props.id, this.state.voteChange);
+    } else {
+      API.changeCommentVotes(this.props.id, this.state.voteChange);
+    }
+  };
+
+  handleClick = vote => {
+    this.setState(prevState => {
+      return { voteChange: prevState.voteChange + vote };
+    });
+  };
+
+  render() {
+    const { votes } = this.props;
+    return (
+      <form onSubmit={this.handleSubmit}>
+        Votes : {votes + this.state.voteChange}
+        <button
+          disabled={this.state.voteChange === 1 ? true : false}
+          onClick={() => {
+            this.handleClick(1);
+          }}
+          id="Upvoter"
+        >
+          Upvote
+          <span role="img" aria-label="up-arrow">
+            ⏫
+          </span>
+        </button>
+        <button
+          disabled={this.state.voteChange === -1 ? true : false}
+          onClick={() => {
+            this.handleClick(-1);
+          }}
+          id="Downvoter"
+        >
+          Downvote
+          <span role="img" aria-label="down-arrow">
+            ⏬
+          </span>
+        </button>
+      </form>
+    );
+  }
+}

@@ -27,10 +27,11 @@ export default class Voter extends Component {
       <form onSubmit={this.handleSubmit}>
         Votes : {votes + this.state.voteChange}
         <button
+          disabled={this.state.voteChange === 1 ? true : false}
           onClick={() => {
             this.handleClick(1);
           }}
-          id="articleUpvoter"
+          id="Upvoter"
         >
           Upvote
           <span role="img" aria-label="up-arrow">
@@ -38,10 +39,11 @@ export default class Voter extends Component {
           </span>
         </button>
         <button
+          disabled={this.state.voteChange === -1 ? true : false}
           onClick={() => {
             this.handleClick(-1);
           }}
-          id="articleDownvoter"
+          id="Downvoter"
         >
           Downvote
           <span role="img" aria-label="down-arrow">
@@ -52,5 +54,3 @@ export default class Voter extends Component {
     );
   }
 }
-
-// disabled={voteChange === 0 > false : true}

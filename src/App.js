@@ -12,10 +12,20 @@ export default class App extends Component {
   state = {
     loggedInUser: 'weegembump'
   };
+
+  handleSubmit = event => {
+    console.log(event);
+    event.preventDefault();
+    this.setState({ loggedInUser: event.target.value });
+  };
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header
+          loggedInUser={this.loggedInUser}
+          handleSubmit={this.handleSubmit}
+        />
         <Router>
           <Home path="/" />
           <Home path="/articles" />
