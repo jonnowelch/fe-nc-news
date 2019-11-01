@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as API from '../API';
 import CommentViewer from './CommentViewer';
 import Voter from './Voter';
-import ErrorHandler from './ErrorHandler';
+import ErrorPage from './ErrorPage';
 
 export default class SingleArticle extends Component {
   state = {
@@ -11,10 +11,9 @@ export default class SingleArticle extends Component {
     author: '',
     created_at: '',
     votes: 0,
-    err: {
-      errStatus: null,
-      errMessage: ''
-    }
+    err: false,
+    errMsg: '',
+    errStatus: null
   };
 
   componentDidMount() {
@@ -28,12 +27,25 @@ export default class SingleArticle extends Component {
           votes: response.article.votes
         });
       })
-      .catch(() => {
-        console.log('hello');
+      .catch(err => {
+        console.dir(err.response, 'err in article');
+        this.setState({
+          err: true,
+          errMsg: err.response.data.msg,
+          errStatus: err.response.status
+        });
       });
   }
 
   render() {
+    if (this.state.err)
+      return (
+        <ErrorPage
+          err={this.state.err}
+          errMsg={this.state.errMsg}
+          errStatus={this.state.errStatus}
+        />
+      );
     return (
       <div className="grid-container" id="singleArticle">
         <div className="grid-item item1"> {this.state.indivArticle.body}</div>
@@ -59,8 +71,11 @@ export default class SingleArticle extends Component {
         <div className="grid-item item6">
           Comment Count: {this.state.comment_count}
         </div>
-        <ErrorHandler />
       </div>
     );
   }
 }
+
+// this.setState({
+//   errMsg: err.response.data.msg,
+//   errStatus: err.response.status

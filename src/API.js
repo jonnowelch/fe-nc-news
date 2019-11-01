@@ -69,3 +69,9 @@ export const changeCommentVotes = (comment_id, inc_votes) => {
       return data;
     });
 };
+
+export const getTopics = () => {
+  return request.get('/topics').then(({ data }) => {
+    return data;
+  });
+};

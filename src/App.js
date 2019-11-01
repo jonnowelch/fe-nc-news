@@ -4,8 +4,8 @@ import './App.css';
 import Home from './Components/Home';
 import { Router } from '@reach/router';
 import SingleArticle from './Components/SingleArticle';
-import ArticleList from './Components/ArticleList';
-import ErrorHandler from './Components/ErrorHandler';
+import ErrorPage from './Components/ErrorPage';
+import TopicsPage from './Components/TopicsPage';
 
 export default class App extends Component {
   state = {
@@ -17,13 +17,13 @@ export default class App extends Component {
         <Header />
         <Router>
           <Home path="/" />
-          <ArticleList path="/" />
+          <Home path="/articles" />
           <SingleArticle
             path="/articles/:article_id"
             loggedInUser={this.state.loggedInUser}
           />
-
-          <ErrorHandler default />
+          <TopicsPage path="/topics" />
+          <ErrorPage default />
         </Router>
       </div>
     );
