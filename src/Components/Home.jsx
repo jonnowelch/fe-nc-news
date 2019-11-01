@@ -3,13 +3,17 @@ import * as API from '../API';
 import ArticleList from './ArticleList';
 import TopicsDropdown from './TopicsDropdown';
 import ArticleFilter from './ArticleFilter';
+import ErrorPage from './ErrorPage';
 
 export default class Home extends Component {
   state = {
     articles: [],
     selectedTopic: '',
     selectedSortBy: 'created_at',
-    user: 'weegembump'
+    user: 'weegembump',
+    err: false,
+    errMsg: '',
+    errStatus: null
   };
 
   componentDidMount() {
@@ -47,6 +51,14 @@ export default class Home extends Component {
   }
 
   render() {
+    if (this.state.err)
+      return (
+        <ErrorPage
+          err={this.state.err}
+          errMsg={this.state.errMsg}
+          errStatus={this.state.errStatus}
+        />
+      );
     return (
       <div>
         <div className="dropdown-container">
