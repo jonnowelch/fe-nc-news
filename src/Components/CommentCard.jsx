@@ -1,5 +1,6 @@
 import React from 'react';
 import Voter from './Voter';
+import { Link } from '@reach/router';
 
 export default function CommentCard({
   comment,
@@ -10,7 +11,8 @@ export default function CommentCard({
     <li key="commentCards" className="comment-container">
       <div className="comment-item firstCommentItem">{comment.body}</div>
       <div className="comment-item secondCommentItem">
-        Posted by : {comment.author}
+        Posted by :{' '}
+        <Link to={`/users/${comment.author}`}>{comment.author} </Link>
       </div>
       <div className="comment-item thirdCommentItem">
         Posted at : {comment.created_at}

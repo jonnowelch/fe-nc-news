@@ -3,7 +3,8 @@ import * as API from '../API';
 
 export default class UsersList extends Component {
   state = {
-    users: []
+    users: [],
+    loggedInUser: ''
   };
 
   componentDidMount() {
@@ -13,11 +14,21 @@ export default class UsersList extends Component {
       });
     });
   }
+
+  handleSelectUser = event => {
+    this.setState({ loggedInUser: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.loginUserFunction(this.state.loggedInUser);
+  };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          <select id="userDropdown">
+          <select onChange={this.handleSelectUser} id="userDropdown">
             <option key="select user"> Select User</option>
             {this.state.users.map(user => {
               return <option key={user.username}> {user.username} </option>;

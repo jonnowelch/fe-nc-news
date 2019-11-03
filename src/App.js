@@ -10,21 +10,25 @@ import UserPage from './Components/UserPage';
 
 export default class App extends Component {
   state = {
-    loggedInUser: 'weegembump'
+    loggedInUser: ''
   };
 
-  handleSubmit = event => {
-    console.log(event);
-    event.preventDefault();
-    this.setState({ loggedInUser: event.target.value });
+  loginUserFunction = loggedInUser => {
+    this.setState({ loggedInUser });
+  };
+
+  logoutUserFunction = () => {
+    this.setState({ loggedInUser: '' });
   };
 
   render() {
     return (
       <div className="App">
         <Header
-          loggedInUser={this.loggedInUser}
+          loginUserFunction={this.loginUserFunction}
           handleSubmit={this.handleSubmit}
+          loggedInUser={this.state.loggedInUser}
+          logoutUserFunction={this.logoutUserFunction}
         />
         <Router>
           <Home path="/" />

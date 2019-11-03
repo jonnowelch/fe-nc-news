@@ -11,8 +11,8 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "first": "react-scripts start",
-    "start": "killall -9 node && react-scripts start",
+    "first": "killall -9 node && react-scripts start",
+    "start": " react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

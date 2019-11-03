@@ -28,7 +28,6 @@ export default class SingleArticle extends Component {
         });
       })
       .catch(err => {
-        console.dir(err.response, 'err in article');
         this.setState({
           err: true,
           errMsg: err.response.data.msg,
@@ -57,7 +56,8 @@ export default class SingleArticle extends Component {
           ></Voter>
         </div>
         <div className="grid-item item3">
-          Author: {this.state.indivArticle.author}
+          Author:
+          {this.state.indivArticle.author}
         </div>
         <div className="grid-item item4">
           Created At: {this.state.indivArticle.created_at}
@@ -75,7 +75,3 @@ export default class SingleArticle extends Component {
     );
   }
 }
-
-// this.setState({
-//   errMsg: err.response.data.msg,
-//   errStatus: err.response.status

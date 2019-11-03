@@ -72,7 +72,6 @@ export const changeCommentVotes = (comment_id, inc_votes) => {
   return request
     .patch(`/comments/${comment_id}`, { inc_votes })
     .then(({ data }) => {
-      console.log(data);
       return data;
     });
 };

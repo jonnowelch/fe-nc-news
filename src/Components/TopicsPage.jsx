@@ -20,7 +20,6 @@ export default class TopicsPage extends Component {
       return <h1>Loading...</h1>;
     }
     const { topics } = this.state;
-    console.log(topics[0]);
     return (
       <div>
         <h1> List of topics</h1>

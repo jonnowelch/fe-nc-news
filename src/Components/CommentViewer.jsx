@@ -17,15 +17,13 @@ export default class CommentViewer extends Component {
   }
 
   addComment = (user, comment, articleID) => {
-    API.postCommentToArticle(user, comment, articleID)
-      .then(response => {
-        this.setState(currentState => {
-          return {
-            comments: [...response.data.comment, ...currentState.comments]
-          };
-        });
-      })
-      .catch(console.dir);
+    API.postCommentToArticle(user, comment, articleID).then(response => {
+      this.setState(currentState => {
+        return {
+          comments: [...response.data.comment, ...currentState.comments]
+        };
+      });
+    });
   };
 
   handleDeleteComment = comment_id => {
@@ -37,9 +35,7 @@ export default class CommentViewer extends Component {
 
       return { comments: copiedState };
     });
-    API.deleteCommentByCommentId(comment_id).then(() => {
-      console.log('comment deleted');
-    });
+    API.deleteCommentByCommentId(comment_id);
   };
 
   render() {
