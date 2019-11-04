@@ -13,7 +13,7 @@ export default class ArticleFilter extends Component {
   render() {
     return (
       <label>
-        Order to be sorted by:
+        Sort by:
         <select onChange={this.handleSubmit} id="sortBySelector">
           <option value="created_at"> Date Created</option>
           <option value="comment_count"> Comment Count</option>

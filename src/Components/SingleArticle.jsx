@@ -3,6 +3,7 @@ import * as API from '../API';
 import CommentViewer from './CommentViewer';
 import Voter from './Voter';
 import ErrorPage from './ErrorPage';
+import { Link } from '@reach/router';
 
 export default class SingleArticle extends Component {
   state = {
@@ -56,8 +57,9 @@ export default class SingleArticle extends Component {
           ></Voter>
         </div>
         <div className="grid-item item3">
-          Author:
-          {this.state.indivArticle.author}
+          <Link to={`/users/${this.state.indivArticle.author}`}>
+            {this.state.indivArticle.author}{' '}
+          </Link>
         </div>
         <div className="grid-item item4">
           Created At: {this.state.indivArticle.created_at}

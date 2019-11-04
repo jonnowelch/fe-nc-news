@@ -24,32 +24,36 @@ export default class Voter extends Component {
   render() {
     const { votes } = this.props;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="vote-flex">
+        <div>
+          <button
+            disabled={this.state.voteChange === 1 ? true : false}
+            onClick={() => {
+              this.handleClick(1);
+            }}
+            id="Upvoter"
+          >
+            Upvote
+            <span role="img" aria-label="up-arrow">
+              ⏫
+            </span>
+          </button>
+        </div>
         Votes : {votes + this.state.voteChange}
-        <button
-          disabled={this.state.voteChange === 1 ? true : false}
-          onClick={() => {
-            this.handleClick(1);
-          }}
-          id="Upvoter"
-        >
-          Upvote
-          <span role="img" aria-label="up-arrow">
-            ⏫
-          </span>
-        </button>
-        <button
-          disabled={this.state.voteChange === -1 ? true : false}
-          onClick={() => {
-            this.handleClick(-1);
-          }}
-          id="Downvoter"
-        >
-          Downvote
-          <span role="img" aria-label="down-arrow">
-            ⏬
-          </span>
-        </button>
+        <div>
+          <button
+            disabled={this.state.voteChange === -1 ? true : false}
+            onClick={() => {
+              this.handleClick(-1);
+            }}
+            id="Downvoter"
+          >
+            Downvote
+            <span role="img" aria-label="down-arrow">
+              ⏬
+            </span>
+          </button>
+        </div>
       </form>
     );
   }

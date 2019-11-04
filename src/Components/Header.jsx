@@ -9,16 +9,16 @@ export default function Header({
   logoutUserFunction
 }) {
   return (
-    <div>
-      <h1>
-        <Link to={'/'}>Welcome to NC News </Link>
-      </h1>
-      Logged in : {loggedInUser}
-      <UsersList
-        loginUserFunction={loginUserFunction}
-        loggedInUser={loggedInUser}
-      />
-      <LogoutUser logoutUserFunction={logoutUserFunction} />
-    </div>
+    <h1 className="header-flex-container">
+      <Link to={'/'}>Welcome to NC News </Link>
+      <div>
+        Logged in : {loggedInUser}
+        <UsersList
+          loginUserFunction={loginUserFunction}
+          loggedInUser={loggedInUser}
+        />
+        <LogoutUser logoutUserFunction={logoutUserFunction} />
+      </div>
+    </h1>
   );
 }

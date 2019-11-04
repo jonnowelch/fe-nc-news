@@ -31,7 +31,7 @@ export default class CommentAdder extends Component {
       <form onSubmit={this.handleSubmit}>
         <label id="enterCommentText">
           Enter Comment:
-          <input
+          <textarea
             id="enter-comment"
             type="text"
             required

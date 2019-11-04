@@ -1,20 +1,56 @@
 .App {
   text-align: center;
+  background-color: #e0e2db;
 }
 
 .App-logo {
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#mainHeader {
+  display: grid;
+}
+
+.header-flex-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #344e41;
+  font-size: 50px;
+}
+
+.header-flex-container > div {
+  color: rgb(16, 46, 7);
+  background: #d2d4c8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 12px;
+  font-size: 30px;
+}
+
+#userDropdown {
+  color: rgb(16, 46, 7);
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 12px;
+  font-size: 30px;
+}
+
+#loginButton {
+  color: rgb(16, 46, 7);
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 12px;
+  font-size: 30px;
+}
+
+#logoutButton {
+  color: rgb(16, 46, 7);
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 12px;
+  font-size: 30px;
 }
 
 .App-link {
@@ -33,8 +69,8 @@ td {
 }
 
 #articlesList {
-  color: rgb(218, 98, 0);
-  background-color: white;
+  color: #2e3532;
+  background-color: #e0e2db;
   text-align: center;
   list-style-position: inside;
   padding: 3px 0 3px 20px;
@@ -71,13 +107,11 @@ td {
 
 #articleVoter {
   font-size: 20px;
-  color: rgb(190, 123, 207);
 }
 
 .grid-container {
   display: grid;
   grid-gap: 10px;
-  background: #5c1309cb;
   padding: 10px;
 }
 
@@ -92,6 +126,7 @@ td {
   grid-column: 1 / span 4;
   grid-row: 1 / span 50;
   font-size: 100 px;
+  background-color: #e0e2db;
 }
 
 .item2 {
@@ -103,6 +138,7 @@ td {
   grid-column: 1 / span 1;
   grid-row: 52;
   font-size: 100%;
+  color: rgb(155, 96, 20);
 }
 
 .item4 {
@@ -119,6 +155,15 @@ td {
 .item6 {
   grid-column: 3;
   grid-row: 52;
+}
+
+a:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
 }
 
 #sortBySelector {
@@ -142,12 +187,10 @@ td {
 .dropdown-container {
   display: grid;
   grid-gap: 10px;
-  background: #5c1309cb;
   padding: 10px;
 }
 
 .dropdown-item {
-  background-color: rgba(212, 223, 220, 0.897);
   text-align: center;
   padding: 20px;
   font-size: 30px;
@@ -166,14 +209,21 @@ td {
 }
 
 .article-container {
+  color: rgb(16, 46, 7);
+  background-color: white;
+  text-align: center;
+  list-style-position: inside;
+  padding: 20px;
+  margin: 0.4em 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15pt;
   display: grid;
-  grid-gap: 10px;
-  background: rgba(242, 241, 247, 0.897);
-  padding: 50px;
+  border: #0f2246;
 }
 
 .article-item {
-  background-color: rgba(212, 223, 220, 0.897);
+  background-color: #e0e2db;
   text-align: center;
   padding: 20px;
   font-size: 30px;
@@ -182,6 +232,7 @@ td {
 .firstItem {
   grid-column: 2;
   grid-row: 2;
+  color: rgb(155, 96, 20);
 }
 
 .secondItem {
@@ -203,6 +254,7 @@ td {
   grid-column: 1 / span 3;
   grid-row: 1;
   font-size: 50px;
+  color: rgb(155, 96, 20);
 }
 
 .comment-container {
@@ -241,34 +293,7 @@ td {
 
 #deleteCommentButton {
   color: rgb(16, 46, 7);
-  background: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  border-radius: 12px;
-  font-size: 30px;
-}
-
-#userDropdown {
-  color: rgb(16, 46, 7);
-  background: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  border-radius: 12px;
-  font-size: 30px;
-}
-
-#loginButton {
-  color: rgb(16, 46, 7);
-  background: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  border-radius: 12px;
-  font-size: 30px;
-}
-
-#logoutButton {
-  color: rgb(16, 46, 7);
-  background: white;
+  background: #e0e2db;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border-radius: 12px;
@@ -277,7 +302,7 @@ td {
 
 #addCommentButton {
   color: rgb(16, 46, 7);
-  background: white;
+  background: #e0e2db;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border-radius: 12px;
@@ -298,24 +323,6 @@ td {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 50px;
   overflow: auto;
-}
-
-#upvoteCommentButton {
-  color: rgb(16, 46, 7);
-  background: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  border-radius: 12px;
-  font-size: 300px;
-}
-
-#downvoteCommentButton {
-  color: rgb(16, 46, 7);
-  background: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  border-radius: 12px;
-  font-size: 30px;
 }
 
 #Upvoter {
@@ -346,4 +353,43 @@ td {
   color: inherit;
   background-color: black;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.users-article-container {
+  color: rgb(16, 46, 7);
+  background-color: #e0e2db;
+  text-align: center;
+  list-style-position: inside;
+  padding: 20px;
+  margin: 0.4em 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15pt;
+  display: grid;
+  border: #0f2246;
+}
+
+.firstUAItem {
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 5;
+  font-size: 100 px;
+  color: rgb(155, 96, 20);
+}
+
+.secondUAItem {
+  grid-column: 1 / span 2;
+  grid-row: 6;
+  font-size: 100 px;
+}
+
+.thirdUAItem {
+  grid-column: 3 / span 2;
+  grid-row: 6;
+  font-size: 100 px;
+}
+
+.fourthUAItem {
+  grid-column: 5;
+  grid-row: 1 / span 5;
+  font-size: 50px;
 }

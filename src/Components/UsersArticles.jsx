@@ -25,11 +25,15 @@ export default class UsersArticles extends Component {
     return (
       <div>
         <ul key="usersArticleList">
-          Articles:{' '}
+          {this.props.username}'s articles:{' '}
           {this.state.articles.length &&
             this.state.articles.map(article => {
               return (
-                <UsersArticlesCard article={article} key={article.article_id} />
+                <UsersArticlesCard
+                  article={article}
+                  key={article.article_id}
+                  user={this.props.user}
+                />
               );
             })}
         </ul>

@@ -27,7 +27,7 @@ export default class UserPage extends Component {
         {name} <br></br>
         {username} <br></br>
         <img src={avatar_url} alt="user" />
-        <UsersArticles username={this.username} />
+        <UsersArticles username={this.props.username} user={this.state.user} />
       </div>
     );
   }
