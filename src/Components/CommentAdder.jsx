@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class CommentAdder extends Component {
   state = {
-    body: '',
-    user: ''
+    body: "",
+    user: ""
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.body && this.props.loggedInUser !== '') {
+    if (this.state.body && this.props.loggedInUser !== "") {
       this.props.addComment(
         this.props.loggedInUser,
         this.state.body,
         this.props.article_id
       );
       this.setState({
-        body: '',
+        body: "",
         user: this.props.loggedInUser
       });
     }
@@ -30,10 +30,10 @@ export default class CommentAdder extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label id="enterCommentText">
-          Enter Comment:
           <textarea
             id="enter-comment"
             type="text"
+            placeholder="Please login to enter comment"
             required
             onChange={this.handleCommentInput}
             value={this.state.body}

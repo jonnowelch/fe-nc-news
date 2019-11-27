@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import * as API from '../API';
-import CommentViewer from './CommentViewer';
-import Voter from './Voter';
-import ErrorPage from './ErrorPage';
-import { Link } from '@reach/router';
+import React, { Component } from "react";
+import * as API from "../API";
+import CommentViewer from "./CommentViewer";
+import Voter from "./Voter";
+import ErrorPage from "./ErrorPage";
+import { Link } from "@reach/router";
 
 export default class SingleArticle extends Component {
   state = {
     indivArticle: {},
     comment_count: 0,
-    author: '',
-    created_at: '',
+    author: "",
+    created_at: "",
     votes: 0,
     err: false,
-    errMsg: '',
+    errMsg: "",
     errStatus: null
   };
 
@@ -25,7 +25,8 @@ export default class SingleArticle extends Component {
           comment_count: response.article.comment_count,
           author: response.article.author,
           created_at: response.article.created_at,
-          votes: response.article.votes
+          votes: response.article.votes,
+          title: response.article.title
         });
       })
       .catch(err => {
@@ -48,6 +49,7 @@ export default class SingleArticle extends Component {
       );
     return (
       <div className="grid-container" id="singleArticle">
+        <div className="grid-item item 6">{this.state.indivArticle.title}</div>
         <div className="grid-item item1"> {this.state.indivArticle.body}</div>
         <div className="grid-item item2">
           <Voter
@@ -57,12 +59,11 @@ export default class SingleArticle extends Component {
           ></Voter>
         </div>
         <div className="grid-item item3">
+          {" "}
+          Author:
           <Link to={`/users/${this.state.indivArticle.author}`}>
-            {this.state.indivArticle.author}{' '}
+            {this.state.indivArticle.author}{" "}
           </Link>
-        </div>
-        <div className="grid-item item4">
-          Created At: {this.state.indivArticle.created_at}
         </div>
         <div className="grid-item item5">
           <CommentViewer

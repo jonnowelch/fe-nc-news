@@ -1,7 +1,7 @@
-import React from 'react';
-import UsersList from './UsersList';
-import LogoutUser from './LogoutUser';
-import { Link } from '@reach/router';
+import React from "react";
+import UsersList from "./UsersList";
+import LogoutUser from "./LogoutUser";
+import { Link } from "@reach/router";
 
 export default function Header({
   loggedInUser,
@@ -9,15 +9,19 @@ export default function Header({
   logoutUserFunction
 }) {
   return (
-    <h1 className="header-flex-container">
-      <Link to={'/'}>Welcome to NC News </Link>
-      <div>
-        Logged in : {loggedInUser}
+    <h1 className="header-container">
+      <Link to={"/"}>NC News </Link>
+      <div className="log-in-container">
+        <div className="log-in-text">Logged in : {loggedInUser} </div>
         <UsersList
+          className="log-in-button"
           loginUserFunction={loginUserFunction}
           loggedInUser={loggedInUser}
         />
-        <LogoutUser logoutUserFunction={logoutUserFunction} />
+        <LogoutUser
+          className="logout-button"
+          logoutUserFunction={logoutUserFunction}
+        />
       </div>
     </h1>
   );

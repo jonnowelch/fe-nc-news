@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from '@reach/router';
-import Voter from './Voter';
+import React from "react";
+import { Link } from "@reach/router";
+import Voter from "./Voter";
 
 export default function ArticleCard({ article }) {
   return (
