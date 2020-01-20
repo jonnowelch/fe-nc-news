@@ -65,9 +65,6 @@ export default class Home extends Component {
           errStatus={this.state.errStatus}
         />
       );
-    if (this.state.isLoading) {
-      return <Loading />;
-    }
     return (
       <div>
         <div className="dropdown-container">
