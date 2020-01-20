@@ -4,6 +4,10 @@ import CommentViewer from "./CommentViewer";
 import Voter from "./Voter";
 import ErrorPage from "./ErrorPage";
 import { Link } from "@reach/router";
+<<<<<<< HEAD
+=======
+// import logo from "../loading.gif";
+>>>>>>> 0c9a4227b8673599871fa3c613b8d0f39419dfe0
 import Loading from "./Loading";
 
 export default class SingleArticle extends Component {
@@ -53,6 +57,9 @@ export default class SingleArticle extends Component {
           errStatus={this.state.errStatus}
         />
       );
+    if (this.state.isLoading) {
+      return <Loading />;
+    }
     return (
       <div className="grid-container" id="singleArticle">
         <div className="grid-item item 6">{this.state.indivArticle.title}</div>
