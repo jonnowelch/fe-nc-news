@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import * as API from "../API";
+import React, { Component } from 'react';
+import * as API from '../API';
 
 export default class UsersList extends Component {
   state = {
     users: [],
-    loggedInUser: ""
+    loggedInUser: ''
   };
 
   componentDidMount() {
@@ -36,6 +36,9 @@ export default class UsersList extends Component {
             >
           </select>
         </label>
+        <button id="loginButton" type="submit">
+          Login
+        </button>
       </form>
     );
   }
