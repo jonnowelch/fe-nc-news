@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import * as API from '../API';
-import UsersArticlesCard from './UsersArticlesCard';
+import React, { Component } from "react";
+import * as API from "../API";
+import UsersArticlesCard from "./UsersArticlesCard";
+import Loading from "./Loading";
 
 export default class UsersArticles extends Component {
   state = {
@@ -20,12 +21,12 @@ export default class UsersArticles extends Component {
   }
   render() {
     if (this.state.isLoading) {
-      return <h1>Loading...</h1>;
+      return <Loading />;
     }
     return (
       <div>
         <ul key="usersArticleList">
-          {this.props.username}'s articles:{' '}
+          {this.props.username}'s articles:{" "}
           {this.state.articles.length &&
             this.state.articles.map(article => {
               return (

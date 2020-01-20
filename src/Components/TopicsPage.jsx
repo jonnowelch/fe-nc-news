@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import * as API from '../API';
+import React, { Component } from "react";
+import * as API from "../API";
+import Loading from "./Loading";
 
 export default class TopicsPage extends Component {
   state = {
@@ -17,7 +18,7 @@ export default class TopicsPage extends Component {
   }
   render() {
     if (this.state.isLoading) {
-      return <h1>Loading...</h1>;
+      return <Loading />;
     }
     const { topics } = this.state;
     return (

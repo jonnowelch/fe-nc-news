@@ -179,33 +179,45 @@
 }
 
 .article-container {
+  display: grid;
+  grid-template-areas:
+    "vote title title title  "
+    "vote topic   author comments";
   color: rgb(16, 46, 7);
   background-color: white;
-  text-align: center;
-  list-style-position: inside;
+  grid-gap: 10px;
   padding: 20px;
   margin: 0.4em 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15pt;
-  display: grid;
   border: #0f2246;
+  text-align: left;
+  /* list-style-position: inside; */
 }
 
-.fifthItem {
+.firstItem {
   font-size: 30px;
-}
-.grid-item {
-  text-align: center;
-  padding: 20px;
-  font-size: 20px;
+  grid-area: title;
 }
 
-.item6 {
+.secondItem {
+  grid-area: topic;
+}
+
+.thirdItem {
+  grid-area: author;
+}
+
+.fourthItem {
+  grid-area: comments;
+}
+
+/* .item6 {
   grid-column: 1 / span 4;
   grid-row: 1 / span 50;
   font-size: 40px;
-}
+} */
 
 .comment-container {
   color: rgb(16, 46, 7);

@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import * as API from '../API';
-import UsersArticles from './UsersArticles';
+import React, { Component } from "react";
+import * as API from "../API";
+import UsersArticles from "./UsersArticles";
+import Loading from "./Loading";
 
 export default class UserPage extends Component {
   state = {
@@ -20,7 +21,7 @@ export default class UserPage extends Component {
   render() {
     const { name, username, avatar_url } = this.state.user;
     if (this.state.isLoading) {
-      return <h1>Loading...</h1>;
+      return <Loading />;
     }
     return (
       <div>
