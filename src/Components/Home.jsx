@@ -1,32 +1,35 @@
-import React, { Component } from 'react';
-import * as API from '../API';
-import ArticleList from './ArticleList';
-import TopicsDropdown from './TopicsDropdown';
-import ArticleFilter from './ArticleFilter';
-import ErrorPage from './ErrorPage';
+import React, { Component } from "react";
+import * as API from "../API";
+import ArticleList from "./ArticleList";
+import TopicsDropdown from "./TopicsDropdown";
+import ArticleFilter from "./ArticleFilter";
+import ErrorPage from "./ErrorPage";
+import Loading from "./Loading";
 
 export default class Home extends Component {
   state = {
     articles: [],
-    selectedTopic: '',
-    selectedSortBy: 'created_at',
-    user: 'weegembump',
+    selectedTopic: "",
+    selectedSortBy: "created_at",
+    user: "weegembump",
     err: false,
-    errMsg: '',
-    errStatus: null
+    errMsg: "",
+    errStatus: null,
+    isLoading: true
   };
 
   componentDidMount() {
     API.axiosGetArticles().then(response => {
       this.setState({
-        articles: response.articles
+        articles: response.articles,
+        isLoading: false
       });
     });
   }
 
   filterByTopic = selectedTopic => {
-    if (selectedTopic === 'all') {
-      selectedTopic = '';
+    if (selectedTopic === "all") {
+      selectedTopic = "";
     }
     this.setState({ selectedTopic });
   };
@@ -59,6 +62,9 @@ export default class Home extends Component {
           errStatus={this.state.errStatus}
         />
       );
+    if (this.state.isLoading) {
+      return <Loading />;
+    }
     return (
       <div>
         <div className="dropdown-container">

@@ -4,6 +4,8 @@ import CommentViewer from "./CommentViewer";
 import Voter from "./Voter";
 import ErrorPage from "./ErrorPage";
 import { Link } from "@reach/router";
+// import logo from "../loading.gif";
+import Loading from "./Loading";
 
 export default class SingleArticle extends Component {
   state = {
@@ -14,7 +16,8 @@ export default class SingleArticle extends Component {
     votes: 0,
     err: false,
     errMsg: "",
-    errStatus: null
+    errStatus: null,
+    isLoading: true
   };
 
   componentDidMount() {
@@ -26,7 +29,8 @@ export default class SingleArticle extends Component {
           author: response.article.author,
           created_at: response.article.created_at,
           votes: response.article.votes,
-          title: response.article.title
+          title: response.article.title,
+          isLoading: false
         });
       })
       .catch(err => {
@@ -47,6 +51,9 @@ export default class SingleArticle extends Component {
           errStatus={this.state.errStatus}
         />
       );
+    if (this.state.isLoading) {
+      return <Loading />;
+    }
     return (
       <div className="grid-container" id="singleArticle">
         <div className="grid-item item 6">{this.state.indivArticle.title}</div>
