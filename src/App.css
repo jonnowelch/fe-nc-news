@@ -80,7 +80,8 @@
   font-size: 20px;
 }
 
-.login-container {
+.log-in-container {
+  grid-column: 3;
   display: grid;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -89,7 +90,7 @@
 }
 
 .login-text {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
   grid-row: 1;
   font-size: 20px;
 }
@@ -123,11 +124,12 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   border-radius: 12px;
   font-size: 15px;
-  grid-column: 2;
-  grid-row: 3;
+  grid-column: 3;
+  grid-row: 2;
 }
 
 .dropdown-container {
+  display: grid;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
@@ -175,6 +177,7 @@
 }
 
 .article-container {
+  color: inherit;
   display: grid;
   grid-template-areas:
     "vote title title title  "
@@ -189,12 +192,13 @@
   font-size: 15pt;
   border: #0f2246;
   text-align: left;
-  /* list-style-position: inside; */
 }
 
 .firstItem {
   font-size: 30px;
   grid-area: title;
+  color: inherit;
+  color: black;
 }
 
 .secondItem {
@@ -203,17 +207,23 @@
 
 .thirdItem {
   grid-area: author;
+  color: inherit;
 }
 
 .fourthItem {
   grid-area: comments;
 }
 
-/* .item6 {
+.singleArticle {
+  display: grid;
+}
+
+.item6 {
   grid-column: 1 / span 4;
   grid-row: 1 / span 50;
   font-size: 40px;
-} */
+  color: rgb(37, 53, 104);
+}
 
 .comment-container {
   color: rgb(16, 46, 7);

@@ -55,7 +55,7 @@ export default class SingleArticle extends Component {
       );
     return (
       <div className="grid-container" id="singleArticle">
-        <div className="grid-item item 6">{this.state.indivArticle.title}</div>
+        <div className="grid-item item6">{this.state.indivArticle.title}</div>
         <div className="grid-item item1"> {this.state.indivArticle.body}</div>
         <div className="grid-item item2">
           <Voter

@@ -9,8 +9,10 @@ export default function Header({
   logoutUserFunction
 }) {
   return (
-    <h1 className="header-container">
-      <Link to={"/"}>NC News </Link>
+    <h1 className="h1">
+      <Link to={"/"} id="titleHeader">
+        NC News{" "}
+      </Link>
       <div className="log-in-container">
         <div className="log-in-text">Logged in : {loggedInUser} </div>
         <UsersList
